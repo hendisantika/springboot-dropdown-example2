@@ -1,6 +1,8 @@
 package com.hendisantika.springbootdropdownexample2.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,6 +15,8 @@ import lombok.Data;
  */
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Country {
     private Long countryId;
     private String countryCode;
