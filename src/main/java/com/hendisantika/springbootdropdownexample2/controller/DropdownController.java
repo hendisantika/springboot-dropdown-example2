@@ -59,6 +59,22 @@ public class DropdownController {
     public String selectOptionExample2Page(Model model) {
 
         PersonForm form = new PersonForm();
+        getMapCountries(model, form);
+
+        return "selectOptionExample2";
+    }
+
+    @GetMapping("/selectOptionExample3")
+    public String selectOptionExample3Page(Model model) {
+
+        PersonForm form = new PersonForm();
+        getMapCountries(model, form);
+
+
+        return "selectOptionExample3";
+    }
+
+    private void getMapCountries(Model model, PersonForm form) {
         model.addAttribute("personForm", form);
 
         // Long: countryId
@@ -69,21 +85,5 @@ public class DropdownController {
         logger.info("Country Map List ....");
         logger.info(mapCountries);
         mapCountries.forEach((k, v) -> logger.info("Country Code : " + k + "|" + "Country Name : " + v));
-
-        return "selectOptionExample2";
-    }
-
-    @GetMapping("/selectOptionExample3")
-    public String selectOptionExample3Page(Model model) {
-
-        PersonForm form = new PersonForm();
-        model.addAttribute("personForm", form);
-
-        // Long: countryId
-        // String: countryName
-        Map<Long, String> mapCountries = countryRepository.getMapCountries();
-        model.addAttribute("mapCountries", mapCountries);
-
-        return "selectOptionExample3";
     }
 }
