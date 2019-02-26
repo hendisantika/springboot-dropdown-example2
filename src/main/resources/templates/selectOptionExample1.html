@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Select Option Example 1</title>
+</head>
+<body>
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+
+<h2>Select Option Example 1</h2>
+
+
+<form method='POST' name='f' th:object="${personForm}">
+    <table>
+        <tr>
+            <td>Select Country:</td>
+            <td>
+                <select th:field="*{countryId}">
+                    <option value=""> --</option>
+                    <option th:each="country : ${countries}"
+                            th:utext="${country.countryName}"
+                            th:value="${country.countryId}"/>
+                </select>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td><input name="submit" type="submit" value="submit"/></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+
+</html>
