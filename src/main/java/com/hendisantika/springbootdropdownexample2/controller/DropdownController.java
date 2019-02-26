@@ -68,6 +68,7 @@ public class DropdownController {
 
         logger.info("Country Map List ....");
         logger.info(mapCountries);
+        mapCountries.forEach((k, v) -> logger.info("Country Code : " + k + "|" + "Country Name : " + v));
 
         return "selectOptionExample2";
     }
