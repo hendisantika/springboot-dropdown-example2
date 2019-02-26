@@ -72,4 +72,18 @@ public class DropdownController {
 
         return "selectOptionExample2";
     }
+
+    @GetMapping("/selectOptionExample3")
+    public String selectOptionExample3Page(Model model) {
+
+        PersonForm form = new PersonForm();
+        model.addAttribute("personForm", form);
+
+        // Long: countryId
+        // String: countryName
+        Map<Long, String> mapCountries = countryRepository.getMapCountries();
+        model.addAttribute("mapCountries", mapCountries);
+
+        return "selectOptionExample3";
+    }
 }
